@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Buckaroo\Message;
+namespace Omnipay\Buckaroo\Message\Response;
 
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;

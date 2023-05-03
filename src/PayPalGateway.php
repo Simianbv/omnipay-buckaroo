@@ -2,18 +2,20 @@
 
 namespace Omnipay\Buckaroo;
 
+use Omnipay\Buckaroo\Message\Request\PayPalPurchaseRequest;
+
 /**
  * Buckaroo PayPal Gateway
  */
-class PayPalGateway extends BuckarooGateway
+class PayPalGateway extends Gateway
 {
-    public function getName()
+    public function getName ()
     {
         return 'Buckaroo PayPal';
     }
 
-    public function purchase(array $parameters = array())
+    public function purchase (array $parameters = [])
     {
-        return $this->createRequest('\Omnipay\Buckaroo\Message\PayPalPurchaseRequest', $parameters);
+        return $this->createRequest(PayPalPurchaseRequest::class, $parameters);
     }
 }

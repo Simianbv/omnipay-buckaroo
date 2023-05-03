@@ -1,7 +1,8 @@
 <?php
 
-namespace Omnipay\Buckaroo\Message;
+namespace Omnipay\Buckaroo\Message\Request;
 
+use Omnipay\Buckaroo\Message\Response\CompletePurchaseResponse;
 use Omnipay\Common\Exception\InvalidRequestException;
 
 /**

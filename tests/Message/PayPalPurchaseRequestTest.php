@@ -2,6 +2,7 @@
 
 namespace Omnipay\Buckaroo\Message;
 
+use Omnipay\Buckaroo\Message\Request\PayPalPurchaseRequest;
 use Omnipay\Tests\TestCase;
 
 class PayPalPurchaseRequestTest extends TestCase

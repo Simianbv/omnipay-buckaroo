@@ -2,6 +2,7 @@
 
 namespace Omnipay\Buckaroo\Message;
 
+use Omnipay\Buckaroo\Message\Request\SepaDirectDebitPurchaseRequest;
 use Omnipay\Tests\TestCase;
 
 class SepaDirectDebitPurchaseRequestTest extends TestCase

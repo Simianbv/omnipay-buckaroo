@@ -2,18 +2,20 @@
 
 namespace Omnipay\Buckaroo;
 
+use Omnipay\Buckaroo\Message\Request\IdealPurchaseRequest;
+
 /**
  * Buckaroo iDeal Gateway
  */
-class IdealGateway extends BuckarooGateway
+class IdealGateway extends Gateway
 {
-    public function getName()
+    public function getName ()
     {
         return 'Buckaroo iDeal';
     }
 
-    public function purchase(array $parameters = array())
+    public function purchase (array $parameters = [])
     {
-        return $this->createRequest('\Omnipay\Buckaroo\Message\IdealPurchaseRequest', $parameters);
+        return $this->createRequest(IdealPurchaseRequest::class, $parameters);
     }
 }

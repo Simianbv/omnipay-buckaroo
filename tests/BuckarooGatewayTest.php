@@ -7,7 +7,7 @@ use Omnipay\Tests\GatewayTestCase;
 class BuckarooGatewayTest extends GatewayTestCase
 {
     /**
-     * @var BuckarooGateway
+     * @var Gateway
      */
     protected $gateway;
 
@@ -15,14 +15,14 @@ class BuckarooGatewayTest extends GatewayTestCase
     {
         parent::setUp();
 
-        $this->gateway = new BuckarooGateway($this->getHttpClient(), $this->getHttpRequest());
+        $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
     }
 
     public function testPurchase()
     {
         $request = $this->gateway->purchase(array('amount' => '10.00'));
 
-        $this->assertInstanceOf('Omnipay\Buckaroo\Message\PurchaseRequest', $request);
+        $this->assertInstanceOf('Omnipay\Buckaroo\Message\Request\PurchaseRequest', $request);
         $this->assertSame('10.00', $request->getAmount());
     }
 }

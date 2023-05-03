@@ -2,8 +2,8 @@
 
 namespace Omnipay\Buckaroo;
 
-use Omnipay\Buckaroo\Message\CompletePurchaseRequest;
-use Omnipay\Buckaroo\Message\PurchaseRequest;
+use Omnipay\Buckaroo\Message\Request\CompletePurchaseRequest;
+use Omnipay\Buckaroo\Message\Request\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 
 /**
@@ -12,7 +12,7 @@ use Omnipay\Common\AbstractGateway;
  * @method setParameter(string $string, $value)
  * @method createRequest(string $string, array $parameters)
  */
-class BuckarooGateway extends AbstractGateway
+class Gateway extends AbstractGateway
 {
     public function getName ()
     {

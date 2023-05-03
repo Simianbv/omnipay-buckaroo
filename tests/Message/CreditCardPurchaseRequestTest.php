@@ -2,6 +2,7 @@
 
 namespace Omnipay\Buckaroo\Message;
 
+use Omnipay\Buckaroo\Message\Request\CreditCardPurchaseRequest;
 use Omnipay\Tests\TestCase;
 
 class CreditCardPurchaseRequestTest extends TestCase

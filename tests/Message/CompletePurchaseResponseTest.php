@@ -2,6 +2,7 @@
 
 namespace Omnipay\Buckaroo\Message;
 
+use Omnipay\Buckaroo\Message\Response\CompletePurchaseResponse;
 use Omnipay\Tests\TestCase;
 
 class CompletePurchaseResponseTest extends TestCase

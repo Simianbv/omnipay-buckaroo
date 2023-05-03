@@ -1,6 +1,8 @@
 <?php
 
-namespace Omnipay\Buckaroo\Message;
+namespace Omnipay\Buckaroo\Message\Request;
+
+use Omnipay\Buckaroo\Message\Response\PurchaseResponse;
 
 /**
  * Buckaroo Abstract Request

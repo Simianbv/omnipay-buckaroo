@@ -1,6 +1,6 @@
 <?php
 
-namespace Omnipay\Buckaroo\Message;
+namespace Omnipay\Buckaroo\Message\Request;
 
 /**
  * Buckaroo Credit Card Purchase Request

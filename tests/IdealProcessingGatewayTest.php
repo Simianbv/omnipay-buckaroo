@@ -2,7 +2,7 @@
 
 namespace Omnipay\Buckaroo;
 
-use Omnipay\Buckaroo\Message\IdealProcessingPurchaseRequest;
+use Omnipay\Buckaroo\Message\Request\IdealProcessingPurchaseRequest;
 use Omnipay\Tests\GatewayTestCase;
 
 class IdealProcessingGatewayTest extends GatewayTestCase
@@ -10,7 +10,7 @@ class IdealProcessingGatewayTest extends GatewayTestCase
     public function setUp()
     {
         parent::setUp();
-        
+
         $this->gateway = new IdealProcessingGateway($this->getHttpClient(), $this->getHttpRequest());
     }
 
@@ -18,7 +18,7 @@ class IdealProcessingGatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->purchase(array('amount' => '10.00'));
 
-        $this->assertInstanceOf('Omnipay\Buckaroo\Message\IdealProcessingPurchaseRequest', $request);
+        $this->assertInstanceOf('Omnipay\Buckaroo\Message\Request\IdealProcessingPurchaseRequest', $request);
         $this->assertSame('10.00', $request->getAmount());
     }
 
