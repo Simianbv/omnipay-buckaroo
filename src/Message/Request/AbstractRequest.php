@@ -4,38 +4,39 @@ namespace Omnipay\Buckaroo\Message;
 
 /**
  * Buckaroo Abstract Request
+ * @method getParameter(string $string)
  */
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     public $testEndpoint = 'https://testcheckout.buckaroo.nl/html/';
     public $liveEndpoint = 'https://checkout.buckaroo.nl/html/';
 
-    public function getWebsiteKey()
+    public function getWebsiteKey ()
     {
         return $this->getParameter('websiteKey');
     }
 
-    public function setWebsiteKey($value)
+    public function setWebsiteKey ($value)
     {
         return $this->setParameter('websiteKey', $value);
     }
 
-    public function getSecretKey()
+    public function getSecretKey ()
     {
         return $this->getParameter('secretKey');
     }
 
-    public function setSecretKey($value)
+    public function setSecretKey ($value)
     {
         return $this->setParameter('secretKey', $value);
     }
 
-    public function getCulture()
+    public function getCulture ()
     {
         return $this->getParameter('culture');
     }
 
-    public function setCulture($value)
+    public function setCulture ($value)
     {
         return $this->setParameter('culture', $value);
     }
@@ -43,7 +44,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     /**
      * @return string url rejectUrl
      */
-    public function getRejectUrl()
+    public function getRejectUrl ()
     {
         return $this->getParameter('rejectUrl');
     }
@@ -56,7 +57,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      *
      * @return \Omnipay\Common\Message\AbstractRequest
      */
-    public function setRejectUrl($value)
+    public function setRejectUrl ($value)
     {
         return $this->setParameter('rejectUrl', $value);
     }
@@ -66,7 +67,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      *
      * @return string errorUrl
      */
-    public function getErrorUrl()
+    public function getErrorUrl ()
     {
         return $this->getParameter('errorUrl');
     }
@@ -79,17 +80,17 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      *
      * @return \Omnipay\Common\Message\AbstractRequest
      */
-    public function setErrorUrl($value)
+    public function setErrorUrl ($value)
     {
         return $this->setParameter('errorUrl', $value);
     }
 
 
-    public function getData()
+    public function getData ()
     {
         $this->validate('websiteKey', 'secretKey', 'amount', 'returnUrl');
 
-        $data = array();
+        $data = [];
         $data['Brq_websitekey'] = $this->getWebsiteKey();
         $data['Brq_amount'] = $this->getAmount();
         $data['Brq_currency'] = $this->getCurrency();
@@ -104,7 +105,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $data;
     }
 
-    public function generateSignature($data)
+    public function generateSignature ($data)
     {
         uksort($data, 'strcasecmp');
 
@@ -113,20 +114,20 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             if (strcasecmp($key, 'Brq_signature') === 0) {
                 continue;
             }
-            $str .= $key.'='.urldecode($value);
+            $str .= $key . '=' . urldecode($value);
         }
 
-        return sha1($str.$this->getSecretKey());
+        return sha1($str . $this->getSecretKey());
     }
 
-    public function sendData($data)
+    public function sendData ($data)
     {
         $data['Brq_signature'] = $this->generateSignature($data);
 
         return $this->response = new PurchaseResponse($this, $data);
     }
 
-    public function getEndpoint()
+    public function getEndpoint ()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }

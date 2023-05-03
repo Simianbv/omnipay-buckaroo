@@ -7,7 +7,7 @@ namespace Omnipay\Buckaroo\Message;
  */
 class IdealPurchaseRequest extends AbstractRequest
 {
-    public function getData()
+    public function getData ()
     {
         $data = parent::getData();
         $data['Brq_payment_method'] = 'ideal';

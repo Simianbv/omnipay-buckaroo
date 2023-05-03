@@ -10,7 +10,7 @@ namespace Omnipay\Buckaroo\Message;
  */
 class PurchaseRequest extends AbstractRequest
 {
-    public function getData()
+    public function getData ()
     {
         $data = parent::getData();
         unset($data['Brq_payment_method']);
